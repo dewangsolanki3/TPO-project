@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="confirmed">works!</div>
+    <script>
+axios.get('http://localhost:8000/json')
+  .then((response) => {
+    let dogs = response.data;
+    console.log(dogs);
+    let mapped = dogs.map( n => {
+        console.log(n)
+        return `
+        <h2> ${n.name} </h2>
+        <h2> ${n.players} </h2>
+        <h2> ${n.coach} </h2>
+        `   
+    })
+document.getElementById("confirmed").innerHTML = mapped;
+
+});
+
+
+// document.getElementById("confirmed").innerHTML = n.name;
+//     let mapped = dogs.map(function(obj) {
+//     // console.log(Object.keys(obj));
+//   return `
+//   <h2> ${obj.clientname} </h2>
+//   <h2> ${obj.clientemail} </h2>
+//   <h2> ${obj.comment} </h2>
+//     `
+
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="/css/semantic.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<style>
+    body{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/image_5.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+    </style>
+
+
+<body>
+    <div class="site">
+       
+        <br>
+        <br>
+        <br>
+        <div class="ui container">
+            <form id="form" action="/edit/<%= team._id %>" class="ui form" method="POST">
+                <div class="three fields">
+                    <div class="field">
+                        <label for="label" class="ui header" style="color: white;">Edit Company Name</label>
+                        <input type="text" name="name" placeholder="Enter Company Name" value="<%= team.name %>"  id="name">
+                    </div>
+                    <div class="field">
+                        <label for="label" class="ui header" style="color: white;">Edit Description</label>
+                        <input type="text" name="players" placeholder="Enter Description" value="<%= team.players %>" id="players">
+                        <!-- <textarea type="text" name="players" placeholder="Describe yourself here..." value="<%= team.players %>" id="players" rows="4" cols="50"> </textarea> -->
+
+                    </div>
+                    <div class="field">
+                        <label for="label" class="ui header " style="color: white;">Edit Form Link</label>
+                        <input type="text" name="coach" placeholder="Enter Form Link" value="<%= team.coach %>" id="coach">
+                    </div>
+                </div>
+                <!-- <div class=" one fields"> -->
+                    <div class="field fluid">
+                        <button type="submit" class="ui button fluid blue">Save</button>
+                    </div>
+                <!-- </div> -->
+            </form>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>

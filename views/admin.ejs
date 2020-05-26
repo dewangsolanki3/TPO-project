@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+
+
+
+    <link rel="stylesheet" href="/css/semantic.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    body{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/image_5.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">JobPortal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a href="blog.html" class="nav-link">Blog</a>
+            </li> -->
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="admin" class="nav-link">Login/Signup</a>
+            </li>
+            <!-- <li class="nav-item cta cta-colored">
+              <a href="job-post.html" class="nav-link">Want a Job</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+
+
+
+    <div class="site">
+        
+        <br>
+        <br>
+        <br>
+        <div class="ui container">
+            <form id="form" action="/add" class="ui form" method="POST">
+                <div class="three fields">
+                    <div class="field">
+                        <label for="label" class="ui header" style="color: white;">Enter Company Name</label>
+                        <input type="text" name="name" placeholder="Enter Company Name" value=""  id="name">
+                    </div>
+                    <div class="field">
+                        <label for="label" class="ui header" style="color: white;">Enter Description</label>
+                        <!-- <input type="text" name="players" placeholder="Enter Description" value="" id="players"> -->
+                        <textarea type="text" name="players" placeholder="Enter Description" value="" id="players" rows="4" cols="50"></textarea>
+                            
+                    </div>
+                    <div class="field">
+                        <label for="label" class="ui header " style="color: white;">Enter Form Link</label>
+                        <input type="text" name="coach" placeholder="Enter Form Link" value="" id="coach">
+                    </div>
+                </div>
+                <!-- <div class=" one fields"> -->
+                    <div class="field fluid">
+                        <button type="submit" class="ui button fluid blue">Save</button>
+                    </div>
+                <!-- </div> -->
+            </form>
+            <br>
+            <br>
+            <br>
+            
+            <table class="ui table blue" >
+                <thead>
+                    <tr>
+                        <th>Recruiter</th>
+                        <th>Players</th>
+                        <th>Link</th>
+                        <th >Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% teams.forEach((team)=>{%>
+                        <tr>
+                            <td id="teamName"><%- team.name %></td>
+                            <td id="teamPlayers"><%- team.players %></td>
+                            <td> <a href="<%- team.coach %>"><%- team.coach %></a> </td>
+
+                            <!-- <td id="teamCoach"><%- team.coach %></td> -->
+                            <td><a class="ui button blue editBtn" href="/edit/<%= team._id %>"><i class="edit white icon"></i></a></td>
+                            <td><a class="ui button blue actnBtn" href="/<%= team._id %>"><i id="delete" class="minus red icon"></i></a></td>
+                        </tr>
+                      <% }); %>
+                </tbody>
+            
+                <!-- <tbody>
+                    <tr>
+                        <td>Bayern Munich</td>
+                        <td>Lawendoski, Coutinho</td>
+                        <td>Niko Kovač</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                    <tr>
+                        <td>PSG</td>
+                        <td>Neymar, Mbappe</td>
+                        <td>Thomas Tuchel</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                    <tr>
+                        <td>FC Barcelona</td>
+                        <td>Messi, Suarez</td>
+                        <td>Ernesto Valverde</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                </tbody> -->
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD</title>
+
+</head>
+
+<body>
+  
+</body>
+
+</html>
